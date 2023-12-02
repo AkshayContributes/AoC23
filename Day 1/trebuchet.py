@@ -9,5 +9,4 @@ for line in lines:
             temp.append(c)
     number = temp[0]+temp[-1]
     ans += int(number)
-
 print(ans)
