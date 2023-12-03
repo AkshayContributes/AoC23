@@ -8,21 +8,21 @@ MAX_RED = 12
 MAX_GREEN = 13
 MAX_BLUE = 14
 
-limit_dict = {'red': 12, 'green': 13, 'blue': 14}
+limit_dict = {'red': MAX_RED, 'green': MAX_GREEN, 'blue': MAX_BLUE}
 
 
 def findPower(draws):
-    my_dict = {'red': 0, 'green': 0, 'blue': 0}
+    min_req = {'red': 0, 'green': 0, 'blue': 0}
     for draw in draws:
         cubes = draw.split(",")
         for cube in cubes:
             cube = cube.strip()
             counts = cube.split(" ")
-            my_dict[counts[1]] = max(my_dict[counts[1]], int(counts[0]))
+            min_req[counts[1]] = max(min_req[counts[1]], int(counts[0]))
 
     prod = 1
-    for item in my_dict:
-        prod *= my_dict[item]
+    for item in list(min_req.values()):
+        prod *= item
     return prod
 
 
